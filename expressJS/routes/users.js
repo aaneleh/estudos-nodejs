@@ -1,17 +1,25 @@
 const express = require('express')
 const router = express.Router()
 
-
 router.get("/", (req, res) => {
+    console.log(req.query.name)
     res.send('User list')
 })
 
 router.get("/new", (req, res) => {
-    res.send('User new form')
+    res.render("users/new", { nome: "Placeholder"})
 })
 
 router.post('/', (req, res) =>{
-    res.send('Create User')
+    const isValido = true
+    if(isValido) {
+        users.push({nome: req.body.nome})
+        res.redirect(`/users/${users.length - 1}`)
+    } else {
+        console.log("Erro!")
+        res.render("users/new", { nome: req.body.nome})
+    }
+    //res.send(`Creating User ${req.body.nome}`)
 })
 
 router.route('/:id')
@@ -27,8 +35,8 @@ router.route('/:id')
 })
 
 const users = [
-    { name: "Kyle"},
-    { name: "Sally"}
+    { nome: "Kyle"},
+    { nome: "Sally"}
 ]
 //sempre que a rota tiver id roda esse codigo
 //é um middleware (roda entre entre o resquest e a response)
