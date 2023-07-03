@@ -1,0 +1,29 @@
+GET http://localhost:3000/inscritos
+
+###
+
+GET http://localhost:3000/inscritos/64a21a48220d83db361b1558
+
+###
+
+POST http://localhost:3000/inscritos
+Content-Type: application/json
+
+{
+    "nome": "Pessoa Y",
+    "canalInscrito": "WebDev"
+}
+
+###
+
+DELETE http://localhost:3000/inscritos/64a21bc49a447fadad36e292
+
+
+###
+
+PATCH http://localhost:3000/inscritos/64a21a48220d83db361b1558
+Content-Type: application/json
+
+{
+    "nome": "Pessoa X"
+}
